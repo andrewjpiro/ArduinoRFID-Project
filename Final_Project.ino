@@ -5,10 +5,11 @@
 
 #include "FileSystem.h"
 #include "Names.h"
+#include "DataClass.h"
 #include "Networking.h"
 #include "RFID.h"
 #include "RTC.h"
-#include "DataClass.h"
+
 
 void setup()
 {
@@ -31,7 +32,6 @@ void loop()
   {
      Serial.println("Got a Client!");
      dataFile = SD.open("Data.txt"); //opens dataFile in read only mode
-     startConnection(client);        //sends header to client and starts connection
      sendCode(dataFile, configFile, client); //sends html coding from configFile
      handleRequest(dataFile, client);
      

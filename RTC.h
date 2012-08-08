@@ -25,7 +25,6 @@ void printTime(File& file);
 // Conversions from normal decimal numbers to binary coded decimal and back
 char decToBcd(char val);
 char bcdToDec(char val);
-#endif
 
 //////////////////////////////////////////////
 /////////////////RTC.h////////////////////////
@@ -132,3 +131,4 @@ void printTime(File& file)
   } 
   file.print(year, DEC);
 }
+#endif

@@ -12,9 +12,6 @@ void startFileSystem();
 int getLine(File& file, char* buffer, int length);
 char* findChar(char* buffer, const int start,const int length,const char target);
 char* tabOver(char* buffer, const int length, const int numberOfTabs = 1);
-int getData(char* buffer, const int length, File& dataFile, const int location);
-
-#endif
 
 ///////////////////////////////////////////
 //////////////FileSystem.cpp///////////////
@@ -99,29 +96,5 @@ char* tabOver(char* buffer, const int length, const int numberOfTabs)
    return seeker;
 }
 
-int getData(char* buffer, const int length, File& dataFile, const int location)      
-{     
-     const int lineSize = 128;
-     char line[lineSize];
-     
-     char* begbuf = buffer;
-     char* endbuf = buffer + length;
-     
-     unsigned long initPos = dataFile.position();
-     int actualSize = getLine(dataFile, line, lineSize);
-     char* reader = tabOver(line, lineSize, location);
-     if(!(reader))
-     {
-       return 0;
-     }
-
-     for(; *reader != '\t' && *reader != '\n' && buffer < endbuf; reader++)
-     {
-        *buffer = *reader;
-        ++buffer;
-     }
-     return buffer-begbuf; //Successful completion!
-     //Return number of characters in buffer
-     dataFile.seek(initPos); //resets to beginning of line
-}
+#endif
 

@@ -11,8 +11,6 @@ boolean matchName(char* tag, const int tagLength,
                   char* name, const int nameLength, 
                   File& file);
 
-#endif
-
 //////////////////////////////////////////////
 /////////////////Names.cpp////////////////////
 //////////////////////////////////////////////
@@ -77,3 +75,5 @@ boolean matchName(char* RFIDTag, const int tagLength,
   file.seek(initPos);
   return returnVal;
 }
+
+#endif
